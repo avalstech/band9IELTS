@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --background: 210 40% 99%;
+  --foreground: 222 47% 11%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+  --primary: 216 92% 52%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 210 40% 96%;
+  --secondary-foreground: 222 47% 11%;
+  --muted: 210 40% 96%;
+  --muted-foreground: 215 16% 47%;
+  --accent: 216 92% 52%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 214 32% 91%;
+  --input: 214 32% 91%;
+  --ring: 216 92% 52%;
+}
+
+html, body {
+  height: 100%;
+}
+
+body{
+  background: radial-gradient(1200px 600px at 30% -10%, rgba(37,99,235,0.14), transparent 55%),
+              radial-gradient(900px 500px at 90% 0%, rgba(37,99,235,0.10), transparent 55%),
+              hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+::selection{
+  background: rgba(37,99,235,0.18);
+}
+
+/* Notion-ish typography */
+h1, h2, h3 { letter-spacing: -0.02em; }
