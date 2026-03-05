@@ -1,0 +1,29 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        # Keep npm pointed at public registry.
+        - npm config set registry "https://registry.npmjs.org/"
+
+        # If your proxy should be bypassed for npmjs, add hosts here.
+        # Keep localhost entries for local tooling compatibility.
+        - export NO_PROXY="registry.npmjs.org,localhost,127.0.0.1,::1"
+        - export no_proxy="$NO_PROXY"
+
+        # Quick connectivity check to fail fast with actionable logs.
+        - npm ping --registry=https://registry.npmjs.org/
+
+        # Standard dependency install for CI.
+        - npm ci
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: .next
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
+      - .next/cache/**/*
