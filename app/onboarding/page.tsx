@@ -106,7 +106,7 @@ export default function OnboardingPage() {
                   <Separator />
 
                   <Label>Test type</Label>
-                  <RadioGroup value={testType} onValueChange={(v) => setTestType(v as any)} className="grid grid-cols-2 gap-2">
+                  <RadioGroup value={testType} onValueChange={(v) => setTestType(v as "ACADEMIC" | "GENERAL")} className="grid grid-cols-2 gap-2">
                     <div className="flex items-center gap-2 rounded-3xl border bg-white p-3 shadow-soft">
                       <RadioGroupItem value="ACADEMIC" />
                       <div className="leading-tight">
