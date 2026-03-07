@@ -40,7 +40,7 @@ export default function WritingStudioPage() {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
-              <Tabs value={task} onValueChange={(v) => setTask(v as any)}>
+              <Tabs value={task} onValueChange={(v) => setTask(v as "TASK_1" | "TASK_2")}>
                 <TabsList>
                   <TabsTrigger value="TASK_1">Task 1</TabsTrigger>
                   <TabsTrigger value="TASK_2">Task 2</TabsTrigger>

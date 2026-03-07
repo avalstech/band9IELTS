@@ -15,21 +15,22 @@ export function RadioGroup({
   className?: string;
 }) {
   return <div className={cn("grid gap-2", className)}>{React.Children.map(children, (child) => {
-    if (!React.isValidElement(child)) return child;
-    // pass down group props if needed
-    return React.cloneElement(child as any, { groupValue: value, onGroupChange: onValueChange });
+    if (!React.isValidElement<RadioGroupItemProps>(child)) return child;
+    return React.cloneElement(child, { groupValue: value, onGroupChange: onValueChange });
   })}</div>;
 }
+
+type RadioGroupItemProps = {
+  value: string;
+  groupValue?: string;
+  onGroupChange?: (v: string) => void;
+};
 
 export function RadioGroupItem({
   value,
   groupValue,
   onGroupChange,
-}: {
-  value: string;
-  groupValue?: string;
-  onGroupChange?: (v: string) => void;
-}) {
+}: RadioGroupItemProps) {
   const checked = groupValue === value;
   return (
     <button
